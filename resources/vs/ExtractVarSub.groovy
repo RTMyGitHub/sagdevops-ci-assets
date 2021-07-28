@@ -11,7 +11,7 @@ cli.with {
 	h longOpt:'help', 'Usage information'
 	varsubFilePath longOpt:'varsubFilePath',argName:'varsubFilePath', args:1, 'Path to the varsub file exported from Deployer'
 	varsubDirPath longOpt:'varsubDirPath', argName:'varsubDirPath', args:1, 'Path to the dir with the varsub templates'
-	target longOpt:'target', argName:'target', args:1, 'Must have a matching entry in the ENV.groovy flie. Example: DEV.'
+	target longOpt:'target', argName:'target', args:1, 'Must have a matching entry in the ENV.properties flie. Example: DEV.'
 }
 def opts = cli.parse(args)
 org.codehaus.groovy.ant.Groovy

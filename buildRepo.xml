@@ -2,19 +2,19 @@
 <project name="Repo" basedir=".">
 
 	<condition property="useLocalRepository">
-		<equals arg1="${config.build.fbr.type}" arg2="local" />
+		<equals arg1="${config.build.repository.type}" arg2="local" />
 	</condition>
 
 	<condition property="useArtifactoryRepository">
-		<equals arg1="${config.build.fbr.type}" arg2="artifactory" />
+		<equals arg1="${config.build.repository.type}" arg2="artifactory" />
 	</condition>
 
 	<target name="teva.repo.prepareFbrForDeployment" depends="teva.repo.prepareLocalFbrForDeployment, teva.repo.prepareArtifactoryFbrForDeployment">
-		<log msg="Using fbr repository of type '${config.build.fbr.type}'" />
+		<log msg="Using repository of type '${config.build.respository.type}'" />
 	</target>
 
 	<target name="teva.repo.prepareLocalFbrForDeployment" if="useLocalRepository" depends="">
-		<property name="fbrRepoDir" value="${buildOutputDir}" />
+		<property name="tevaRepositoryDirectory" value="${buildOutputDir}" />
 	</target>
 
 	<target name="teva.repo.init">
@@ -37,7 +37,7 @@
 			<fileset dir="${config.tmpdir}" includes="**/${artifactName}">
 			</fileset>
 		</unzip>
-		<property name="fbrRepoDir" value="${unzipDir}" />
+		<property name="tevaRepositoryDirectory" value="${unzipDir}" />
 	</target>
 
 	<target name="teva.repo.prepareArtifactoryDownloadSpec" depends="teva.repo.init">

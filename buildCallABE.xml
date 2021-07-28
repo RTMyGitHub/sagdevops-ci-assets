@@ -14,10 +14,10 @@
 
 	<target name="teva.abe.cleanupBuild">
 		<if>
-			<available file="${fbrRepoDir}" type="dir" />
+			<available file="${tevaRepositoryDirectory}" type="dir" />
 			<then>
 				<delete includeemptydirs="true">
-					<fileset dir="${fbrRepoDir}" includes="**/*" />
+					<fileset dir="${tevaRepositoryDirectory}" includes="**/*" />
 				</delete>
 			</then>
 		</if>

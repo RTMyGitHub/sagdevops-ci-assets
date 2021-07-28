@@ -23,34 +23,33 @@
 		<ant antfile="buildDeployerVarSub.xml" target="teva.deployer.varsub.generateVarSubTemplates" inheritrefs="true" />
 	</target>
 
-	<target name="prepareArtifactoryDownloadSpec" depends="teva.init.Project, teva.repo.prepareArtifactoryDownloadSpec">
+	<!-- Artifactory / SCM tasks below can be enabled on demand
+		<target name="prepareArtifactoryDownloadSpec" depends="teva.init.Project, teva.repo.prepareArtifactoryDownloadSpec">
 		<description>Preparing download spec.</description>
 	</target>
 
 	<target name="prepareArtifactoryUploadSpec" depends="teva.init.Project, teva.repo.processBuildOutputForArtifactory">
-		<description>Preparing download spec.</description>
-	</target>
+		<description>Preparing Upload spec.</description>
+	</target> -->
 
+	<!-- Enable if test scripts are created  and available for use with wM Test Suite
 	<target name="test" depends="teva.init.Project, teva.test.startTest">
 		<description>Run tests.</description>
-	</target>
+	</target> -->
 
+	<!-- Enable if Static code analysis is required. Static code analysis config file is in resources/isccr directory
 	<target name="staticCodeAnalysis" depends="teva.init.Project, teva.test.isccr.reviewPackages">
 		<description>Run static code analysis.</description>
-	</target>
+	</target> -->
 	
-	<target name="buildDeployTest" depends="build, deploy, test">
+	<target name="buildDeployTest" depends="build, deploy">
 		<description>Build and deploy the project.</description>
 	</target>
 
-	<target name="_TEST_startTest" depends="teva.init.Project, teva.test.isccr.reviewPackages, test">
-		<description>_TEST</description>
-	</target>
-
-	<!--
-	-->
+	<!-- Enable if Apache Ivy needs to download external jars required for the CI process
 	<target name="_getJarsToLocal" depends="teva.init.Project, teva.dependencies.util.downloadJarsToLibFolder">
 		<description>Get jars from remote repo with ivy and then retrieve into local lib/ext folder</description>
 	</target>
+	-->
 
 </project>

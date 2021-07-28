@@ -30,7 +30,7 @@
 		<log msg="Target Environment='${teva.targetEnv}'" />
 		<log msg="Project name='${projectName}'" />
 		<log msg="Repository Name='${fbrRepoName}'." />
-		<log msg="Repository location='${fbrRepoDir}'" />
+		<log msg="Repository location='${tevaRepositoryDirectory}'" />
 	</target>
 
 	<target name="teva.deployer.createProjectAutomatorTemplate" depends="">
@@ -38,7 +38,7 @@
 		<log msg="Creating project definition file '${projectAutomatorDefinition}' using environments defined in '${environmentsDefinition}'. Groovy script: '${groovyScript.CreateProjectAutomatorTemplate}'" />
 		<log msg="-repoName ${fbrRepoName}"/>
 		<groovy src="${groovyScript.CreateProjectAutomatorTemplate}">
-			<arg line="-r '${fbrRepoDir}'" />
+			<arg line="-r '${tevaRepositoryDirectory}'" />
 			<arg line="-p '${projectName}'" />
 			<arg line="-f '${projectAutomatorDefinition}'" />
 			<arg line="-t ${teva.targetEnv}" />
